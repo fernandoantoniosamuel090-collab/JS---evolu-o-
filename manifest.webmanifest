@@ -1,0 +1,13 @@
+{
+  "id": "/",
+  "name": "JS EVOLUÇÃO",
+  "short_name": "JS Evolução",
+  "description": "Tecnologia, conhecimento, comércio e inovação.",
+  "lang": "pt",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": []
+}
