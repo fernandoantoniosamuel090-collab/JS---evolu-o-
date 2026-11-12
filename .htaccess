@@ -1,0 +1,18 @@
+Options -Indexes
+RewriteEngine On
+
+# Never expose source, environment files, Git metadata or private project directories.
+RewriteRule ^(?:backend/config|database|docs|storage|\.git)(?:/|$) - [F,L,NC]
+RewriteRule (^|/)\.env(?:$|/) - [F,L,NC]
+RewriteRule (^|/)\.git(?:$|/) - [F,L,NC]
+
+<FilesMatch "^(\.env|\.htaccess|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
